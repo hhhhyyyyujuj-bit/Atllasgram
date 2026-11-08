@@ -43,6 +43,7 @@ jobs:
           echo "ndk.dir=${ANDROID_HOME}/ndk/27.2.12479018" >> local.properties
       - name: Generate Keystore and Properties
         run: |
+          rm -f TMessagesProj/release.keystore
           keytool -genkey -v -keystore TMessagesProj/release.keystore -alias key0 -keyalg RSA -keysize 2048 -validity 10000 -storepass 123456 -keypass 123456 -dname "CN=Atllasgram"
           echo "KEYSTORE_PASS=123456" >> local.properties
           echo "ALIAS_NAME=key0" >> local.properties
