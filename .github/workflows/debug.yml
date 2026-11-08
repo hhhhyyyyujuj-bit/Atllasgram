@@ -49,8 +49,8 @@ jobs:
           echo "ALIAS_NAME=key0" >> local.properties
           echo "ALIAS_PASS=123456" >> local.properties
           echo "keyPassword=123456" >> local.properties
-          echo "TELEGRAM_APP_ID=6" >> local.properties
-          echo "TELEGRAM_APP_HASH=eb06d4abfb49dc3eeb1aeb98ae0f581e" >> local.properties
+          echo "TELEGRAM_APP_ID=32296405" >> local.properties
+          echo "TELEGRAM_APP_HASH=300e1c242167b04a023b945da039ed2c" >> local.properties
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
         with:
