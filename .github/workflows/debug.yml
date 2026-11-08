@@ -8,6 +8,7 @@ on:
       - '**.md'
       - '.github/**'
       - '!.github/workflows/debug.yml'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -51,6 +52,9 @@ jobs:
         uses: gradle/actions/setup-gradle@v6
         with:
           cache-read-only: false
+      - name: Generate Keystore Automatically
+        run: |
+          keytool -genkey -v -keystore TMessagesProj/release.keystore -alias key0 -keyalg RSA -keysize 2048 -validity 10000 -storepass 123456 -keypass 123456 -dname "CN=Atllasgram"
       - name: Debug Build
         run: |
           export LOCAL_PROPERTIES="${{ secrets.LOCAL_PROPERTIES }}"
@@ -72,7 +76,6 @@ jobs:
   upload:
     name: Upload debug
     if: github.event.inputs.upload != 'y'
-    # The channel-publish action runs a Bot API server built on this system.
     runs-on: ubuntu-24.04
     needs:
       - build
@@ -112,11 +115,8 @@ jobs:
           ls -l "$RUNNER_TEMP/channel"
           python bin/scripts/apk_version.py "$RUNNER_TEMP"/channel/*arm64-v8a.apk > "$RUNNER_TEMP/apk-version"
           cat "$RUNNER_TEMP/apk-version" >> "$GITHUB_OUTPUT"
-          # The commits of the push, shown grouped by their kind.
           printf '%s\n' "$COMMITS" > "$RUNNER_TEMP/channel-commits.json"
           echo "chat=$CHAT_ID" >> "$GITHUB_OUTPUT"
-      # The in-app updater reads the APKs and their JSON from the metadata
-      # channel, whatever is posted to the channels below.
       - name: Update metadata
         env:
           HELPER_BOT_TOKEN: ${{ secrets.HELPER_BOT_TOKEN }}
