@@ -32,36 +32,13 @@ import xyz.nextalone.nagram.NaConfig;
 public class NekoXConfig {
 
     //  public static String FAQ_URL = "https://telegra.ph/NekoX-FAQ-03-31";
-    public static String FAQ_URL = "https://github.com/NextAlone/Nagram#faq";
+    public static String FAQ_URL = "https://t.me/atlaseeq"; // رابط قناتك الرسمي
     public static long[] officialChats = {
-//            1305127566, // NekoX Updates
-//            1151172683, // NekoX Chat
-//            1299578049, // NekoX Chat Channel
-//            1137038259, // NekoX APKs
-            1500637449, // Nagram
-            4420879796L, // Nagram Wishes/Reports
-            1645699549, // Nagram Channel
-            2001739482, // Nagram Tips
-            4430210277L, // Nagram Assets
+            -1003979311188L, // قناتك الرسمية (Atlas)
     };
 
     public static long[] developers = {
-            896711046, // nekohasekai
-            380570774, // Haruhi
-            784901712, // NextAlone
-            457896977, // Queally
-            782954985, // MaiTungTM
-            1711019015,  // Lagrio
-            554072292,  // NahidaBuer
-            5412523572L, // blxueya
-            676660002, // xtao
-            1068402676, // Kitsune
-            6244360706L, // Sevtinge
-            625965913,   // YuKongA
-            5382987111L,  // miaoqiqi
-            5555116287L,  // Natu
-            387785790,    // waifucon
-            812417693,  // lutit
+            8150202704L, // Atlas (أنت المطور)
     };
 
     public static final int TITLE_TYPE_TEXT = 0;
